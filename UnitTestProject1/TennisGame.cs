@@ -18,13 +18,28 @@ namespace UnitTestProject1
 
             if (IsSameScore())
             {
-                if (_firstPlayerScore >= 3)
+                if (IsDeuce())
                 {
-                    return "Deuce";
+                    return Deuce();
                 }
-                return scoreDictionary[_firstPlayerScore] + " All";
+                return SameScore();
             }
             return scoreDictionary[_firstPlayerScore] + " " + scoreDictionary[_secondPlayerScore];
+        }
+
+        private string SameScore()
+        {
+            return scoreDictionary[_firstPlayerScore] + " All";
+        }
+
+        private static string Deuce()
+        {
+            return "Deuce";
+        }
+
+        private bool IsDeuce()
+        {
+            return _firstPlayerScore >= 3;
         }
 
         private bool IsSameScore()
