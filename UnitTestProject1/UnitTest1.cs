@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTestProject1
@@ -23,7 +24,7 @@ namespace UnitTestProject1
         public void Thirty_Love()
         {
             _tennisGame.SetFirstPlayerScore(2);
-            Assert.AreEqual("Thirty Love",_tennisGame.Score());
+            Assert.AreEqual("Thirty Love", _tennisGame.Score());
         }
     }
 
@@ -33,14 +34,16 @@ namespace UnitTestProject1
 
         public string Score()
         {
-            if (_firstPlayerScore == 1)
+            var scoreDictionary = new Dictionary<int, string>
             {
-                return "Fifteen Love";
-            }
-            if (_firstPlayerScore == 2)
+                {1, "Fifteen" },
+                {2, "Thirty" }
+            };
+            if (_firstPlayerScore > 0)
             {
-                return "Thirty Love";
+                return scoreDictionary[_firstPlayerScore] + " Love";
             }
+
             return "Love All";
         }
 
