@@ -5,21 +5,24 @@ namespace UnitTestProject1
     [TestClass]
     public class UnitTest1
     {
+        TennisGame _tennisGame = new TennisGame();
         [TestMethod]
         public void Love_All()
         {
-            var tennisGame = new TennisGame();
-            Assert.AreEqual("Love All", tennisGame.Score());
+            Assert.AreEqual("Love All", _tennisGame.Score());
         }
 
         [TestMethod]
         public void Fifteen_Love()
         {
-            var tennisGame = new TennisGame();
-            tennisGame.SetFirstPlayerScore(1);
-            Assert.AreEqual("Fifteen Love", tennisGame.Score());
+            _tennisGame.SetFirstPlayerScore(1);
+            Assert.AreEqual("Fifteen Love", _tennisGame.Score());
         }
 
+        [TestMethod]
+        public void Thirty_Love()
+        {
+        }
     }
 
     public class TennisGame
