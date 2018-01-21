@@ -33,24 +33,35 @@ namespace UnitTestProject1
             _tennisGame.SetFirstPlayerScore(3);
             Assert.AreEqual("Forty Love", _tennisGame.Score());
         }
+
+        [TestMethod]
+        public void Love_Fifteen()
+        {
+            _tennisGame.SetSecondPlayerScore(1);
+            Assert.AreEqual("Love Fifteen",_tennisGame.Score());
+        }
     }
 
     public class TennisGame
     {
         private int _firstPlayerScore;
-
+        private int _secondPlayerScore;
+        Dictionary<int, string> scoreDictionary = new Dictionary<int, string>
+        {
+            {0, "Love" },
+            {1, "Fifteen" },
+            {2, "Thirty" },
+            {3, "Forty" }
+        };
         public string Score()
         {
-            var scoreDictionary = new Dictionary<int, string>
+            
+            if (_firstPlayerScore > 0 || _secondPlayerScore > 0)
             {
-                {1, "Fifteen" },
-                {2, "Thirty" },
-                {3, "Forty" }
-            };
-            if (_firstPlayerScore > 0)
-            {
-                return scoreDictionary[_firstPlayerScore] + " Love";
+                return scoreDictionary[_firstPlayerScore] +" " + scoreDictionary[_secondPlayerScore];
             }
+
+
 
             return "Love All";
         }
@@ -59,6 +70,11 @@ namespace UnitTestProject1
         {
 
             _firstPlayerScore = i;
+        }
+
+        public void SetSecondPlayerScore(int i)
+        {
+            _secondPlayerScore = i;
         }
     }
 }
