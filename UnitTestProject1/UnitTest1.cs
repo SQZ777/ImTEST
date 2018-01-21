@@ -6,8 +6,18 @@ namespace UnitTestProject1
     public class UnitTest1
     {
         [TestMethod]
-        public void TestMethod1()
+        public void Love_All()
         {
+            var tennisGame = new TennisGame();
+            Assert.AreEqual("Love All", tennisGame.Score());
+        }
+    }
+
+    public class TennisGame
+    {
+        public string Score()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
