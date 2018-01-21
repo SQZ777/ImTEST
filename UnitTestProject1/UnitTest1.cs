@@ -7,6 +7,7 @@ namespace UnitTestProject1
     {
 
         TennisGame _tennisGame = new TennisGame();
+
         [TestMethod]
         public void Love_All()
         {
@@ -38,7 +39,7 @@ namespace UnitTestProject1
         public void Love_Fifteen()
         {
             _tennisGame.SetSecondPlayerScore(1);
-            Assert.AreEqual("Love Fifteen",_tennisGame.Score());
+            Assert.AreEqual("Love Fifteen", _tennisGame.Score());
         }
 
         [TestMethod]
@@ -53,7 +54,23 @@ namespace UnitTestProject1
         {
             _tennisGame.SetFirstPlayerScore(1);
             _tennisGame.SetSecondPlayerScore(1);
-            Assert.AreEqual("Fifteen All",_tennisGame.Score());
+            Assert.AreEqual("Fifteen All", _tennisGame.Score());
+        }
+
+        [TestMethod]
+        public void Thirty_All()
+        {
+            _tennisGame.SetFirstPlayerScore(2);
+            _tennisGame.SetSecondPlayerScore(2);
+            Assert.AreEqual("Thirty All", _tennisGame.Score());
+        }
+
+        [TestMethod]
+        public void Deuce()
+        {
+            _tennisGame.SetFirstPlayerScore(3);
+            _tennisGame.SetSecondPlayerScore(3);
+            Assert.AreEqual("Deuce", _tennisGame.Score());
         }
     }
 }
