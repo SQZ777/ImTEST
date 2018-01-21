@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTestProject1
@@ -6,6 +5,7 @@ namespace UnitTestProject1
     [TestClass]
     public class UnitTest1
     {
+
         TennisGame _tennisGame = new TennisGame();
         [TestMethod]
         public void Love_All()
@@ -40,41 +40,20 @@ namespace UnitTestProject1
             _tennisGame.SetSecondPlayerScore(1);
             Assert.AreEqual("Love Fifteen",_tennisGame.Score());
         }
-    }
 
-    public class TennisGame
-    {
-        private int _firstPlayerScore;
-        private int _secondPlayerScore;
-        Dictionary<int, string> scoreDictionary = new Dictionary<int, string>
+        [TestMethod]
+        public void Love_Thirty()
         {
-            {0, "Love" },
-            {1, "Fifteen" },
-            {2, "Thirty" },
-            {3, "Forty" }
-        };
-        public string Score()
-        {
-            
-            if (_firstPlayerScore > 0 || _secondPlayerScore > 0)
-            {
-                return scoreDictionary[_firstPlayerScore] +" " + scoreDictionary[_secondPlayerScore];
-            }
-
-
-
-            return "Love All";
+            _tennisGame.SetSecondPlayerScore(2);
+            Assert.AreEqual("Love Thirty", _tennisGame.Score());
         }
 
-        public void SetFirstPlayerScore(int i)
+        [TestMethod]
+        public void Fifteen_All()
         {
-
-            _firstPlayerScore = i;
-        }
-
-        public void SetSecondPlayerScore(int i)
-        {
-            _secondPlayerScore = i;
+            _tennisGame.SetFirstPlayerScore(1);
+            _tennisGame.SetSecondPlayerScore(1);
+            Assert.AreEqual("Fifteen All",_tennisGame.Score());
         }
     }
 }
