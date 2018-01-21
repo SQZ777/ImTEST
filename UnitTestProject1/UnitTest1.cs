@@ -22,6 +22,8 @@ namespace UnitTestProject1
         [TestMethod]
         public void Thirty_Love()
         {
+            _tennisGame.SetFirstPlayerScore(2);
+            Assert.AreEqual("Thirty Love",_tennisGame.Score());
         }
     }
 
@@ -34,6 +36,10 @@ namespace UnitTestProject1
             if (_firstPlayerScore == 1)
             {
                 return "Fifteen Love";
+            }
+            if (_firstPlayerScore == 2)
+            {
+                return "Thirty Love";
             }
             return "Love All";
         }
