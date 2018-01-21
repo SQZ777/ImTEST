@@ -26,6 +26,13 @@ namespace UnitTestProject1
             _tennisGame.SetFirstPlayerScore(2);
             Assert.AreEqual("Thirty Love", _tennisGame.Score());
         }
+
+        [TestMethod]
+        public void Forty_Love()
+        {
+            _tennisGame.SetFirstPlayerScore(3);
+            Assert.AreEqual("Forty Love", _tennisGame.Score());
+        }
     }
 
     public class TennisGame
@@ -37,7 +44,8 @@ namespace UnitTestProject1
             var scoreDictionary = new Dictionary<int, string>
             {
                 {1, "Fifteen" },
-                {2, "Thirty" }
+                {2, "Thirty" },
+                {3, "Forty" }
             };
             if (_firstPlayerScore > 0)
             {
